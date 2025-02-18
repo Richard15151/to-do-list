@@ -1,0 +1,8 @@
+<form action="/editartarefa/{{tarefa.id_tarefa}}" method="post">
+    <h2>Editar tarefa:</h2>
+    <label> Descreva a tarefa:</label>
+    <input type="text" name="descricao" value="{{tarefa.descricao}}"/>
+    <label> Data da tarefa:</label>
+    <input type="date" name="data" value="{{tarefa.data}}"/>
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>

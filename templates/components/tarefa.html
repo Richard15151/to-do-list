@@ -1,0 +1,40 @@
+<div class="row g-2 d-flex align-items-center justify-content-beetween w-100 border-bottom border-tertiary py-2">
+    <div class=" tarefa col-12 col-sm-6 col-md-8 d-flex justify-content-start">
+        
+        {% if tarefa.status == 'Pendente'%}
+            <span class="fs-4 me-3" style="font-family: 'Poppins';">{{tarefa.descricao}}</span> 
+            <span class="fs-4 me-3"style="font-family: 'Poppins';">{{tarefa.data.strftime('%d/%m/%Y')}} </span>
+            <span class="fs-4"style="font-family: 'Poppins';">{{ tarefa.status }}</span>
+        {% else %}
+            <span class=" text-decoration-line-through me-3 fs-4" style="font-family: 'Poppins';">{{tarefa.descricao}}</span> 
+            <span class=" text-decoration-line-through me-3 fs-4" style="font-family: 'Poppins';">{{tarefa.data.strftime('%d/%m/%Y')}} </span>
+            <span class="text-success fs-4" style="font-family: 'Poppins';">{{ tarefa.status }}</span>
+        {% endif %}
+        
+    </div>
+    <div class="botoes col-12 col-sm-6 col-md-4 d-flex justify-content-end">
+            {% if tarefa.status == 'Pendente' %}
+                <a href="/editartarefa/{{ tarefa.id_tarefa }}">
+                    <button class="btn btn-warning me-4">
+                        Editar
+                    </button>
+                </a>
+                <a href="/alterarstatus/{{ tarefa.id_tarefa }}">
+                    <button class="btn btn-success">
+                        Concluir
+                    </button>
+                </a>
+            {% else %}
+                <a href="/excluir/{{ tarefa.id_tarefa }}">
+                    <button class=" btn btn-danger me-4">
+                        Excluir
+                    </button>
+                </a>
+                <a href="/alterarstatus/{{ tarefa.id_tarefa }}">
+                    <button class="btn btn-primary">
+                        Reabrir
+                    </button>
+                </a>
+            {% endif %}
+    </div>
+</div>
